@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS style changer</title>
+    <style>
+        h1, button {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+    </style>
+    <script>
+        function changeFont() {
+            document.getElementById("myHeading").style.fontFamily = "Comic Sans MS";
+            document.getElementById("myHeading").innerHTML= "Now its a fun font";
+            document.getElementById("fontButton").hidden = true;
+        }
+    </script>
+</head>
+<body>
+    <h1 id="myHeading">Not a fun font</h1>
+    <button id="fontButton" onClick="changeFont()">Make It Fun</button>
+</body>
+</html>
