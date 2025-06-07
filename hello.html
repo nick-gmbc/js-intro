@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function hello() {
+            alert("Hello World");
+            document.getElementById("myHeading").innerHTML = "Hello World";
+        }
+    </script>
 </head>
 <body>
-    
+    <h1 id="myHeading">My first JavaScript Program</h1>
+    <button onclick="hello()">Hello</button>
+
 </body>
 </html>
