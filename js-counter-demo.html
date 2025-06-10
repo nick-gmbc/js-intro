@@ -9,8 +9,17 @@
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
     </style>
+    <script>
+        let counter = 0;
+
+        function updateCounter() {
+            counter = counter + 1;
+            document.getElementById("counterDisplay").innerHTML = "The counter is " + counter;
+        }
+    </script>
 </head>
 <body>
+
     <h1 id="counterDisplay">The counter is 0</h1>
     <button onclick="updateCounter()">Update Counter</button>
 </body>

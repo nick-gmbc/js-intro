@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eligible to vote</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <script>
+        function canVote() {
+            if (document.getElementById("txt_age").value >= 18) {
+                message = "Yes you can vote";
+            }
+            else {
+                 message = "No you cannot vote";
+            }
+            document.getElementById("voteMessage").innerHTML = message;
+        }
+    </script>
+</head>
+<body>
+    <h1>Can I vote</h1>
+    <label>Please enter your age in years: </label>
+    <input type="number" id="txt_age"> 
+    <button onClick="canVote()">Click to find out whether you can vote</button>
+    <div id="voteMessage">
+
+    </div>
+</body>
+</html>
