@@ -16,7 +16,43 @@ function contains_one_of(test_string,char_list) {
     return found;
 }
 
+function random_int(lower, upper) {
+    return Math.floor(Math.random() * (upper - lower + 1)+lower);
+}
 
+function pick_at_random_from(chars) {
+    random_position = random_int(0, chars.length-1);
+    return chars.substring(random_position,random_position+1);
+}
+
+function generate_password(password_length) {
+    // Generates a password of password_length
+    // if password_length < 10, set length to 10
+    if (password_length < 10) {
+        password_length = 10;
+    }
+    password = "AA";
+    while (! check_password(password)) {
+        password = "";
+        for (char_count = 1; char_count <= password_length; char_count++) {
+            char_type =  random_int(1,4)
+            if (char_type == 1) {
+                password = password + pick_at_random_from(caps);
+            }
+            else if (char_type == 2) {
+                password = password +  pick_at_random_from(lower);
+            }
+            else if (char_type == 3) {
+                password = password +  pick_at_random_from(digits);
+            }
+            else {
+                password = password + pick_at_random_from(punc);
+            }
+        }   
+    }
+    return password;
+    
+}
 
 
 
