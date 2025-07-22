@@ -13,17 +13,36 @@
         }
     </style>
     <script>
-        let numberToGuess = 0;
-        function generateNumber() {
-            numberToGuess = Math.floor(Math.random() * 10) + 1;
-            alert(numberToGuess);
+        var numberToGuess;
+        
+        function startGame() {
+            //alert("Hi");
+            numberToGuess = Math.floor(Math.random() * 100) + 1;
+            document.getElementById("newGame").disabled = true;
+            document.getElementById("checkAnswer").disabled = false;
+            document.getElementById("feedback").innerHTML = "";
+            document.getElementById("myGuess").value = "";
         }
         function checkAnswer() {
-
+            guess = document.getElementById("myGuess").value
+            if (guess == numberToGuess) {
+                message = "Correct";
+                document.getElementById("newGame").disabled = false;
+                document.getElementById("checkAnswer").disabled = true;
+            }
+            else if (guess > numberToGuess) {
+                message = "You guess is too large"
+            }
+            else {
+                message = "Your guess is too small"
+            }
+            message += ("<br>Your last guess was " + guess);
+            document.getElementById("myGuess").value = "";
+            document.getElementById("feedback").innerHTML = message;
         }
     </script>
 </head>
-<body>
+<body onload="startGame()">
     <h1>Guessing Game</h1>
     <div class="area">
         <label>My Guess </label><input type="text" id="myGuess">
@@ -32,7 +51,8 @@
         <span id="feedback"> </span>
     </div>
     <div class="area">
-        <button  class="area">Check Guess</button><button onclick="generateNumber()" class="area">New Game</button>
+        <button onclick="checkAnswer()" id="checkAnswer" class="area">Check Guess</button>
+        <button onclick="startGame()" id ="newGame" class="area">New Game</button>
     </div>
 </body>
 </html>
